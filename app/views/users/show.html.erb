@@ -1,0 +1,17 @@
+<h1>User:<%= @user.name %></h1>
+
+<p>
+  <b>Nombre:</b>
+  <%= @user.name %>
+</p>
+
+<b>Cargo Family Goal:</b>
+<ul>
+  <% @user.family_goals.each do |family| %>
+    <li><%= family.name.to_s + '|' + family.code.to_s + '|' + family.cargo.to_s + '|' + family.area.to_s + '|' + family.mundo.to_s %></li>
+  <% end %>
+</ul>
+
+<%= link_to 'Editar', edit_user_path(@user) %> |
+<%= link_to 'Destroy', @gps, method: :delete, confirm: "Estas seguro?" %> |
+<%= link_to 'Listar User', users_path %>

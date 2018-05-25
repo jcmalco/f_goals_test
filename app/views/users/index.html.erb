@@ -1,0 +1,15 @@
+<h1>Users</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+  </tr>
+<% @users.each do |user| %>
+  <tr>
+    <td><%= link_to(user.name, user) %></td>
+  </tr>
+<% end %>
+</table>
+
+<p><%= link_to "Nuevo User", new_user_path %></p>
+<p><%= link_to 'Listar Family Goals', family_goals_path %></p>

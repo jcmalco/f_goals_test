@@ -1,0 +1,40 @@
+<h1>Family Goals</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Code</th>
+      <th>Cargo</th>
+      <th>Area</th>
+      <th>Mundo</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @family_goals.each do |family_goal| %>
+      <tr>
+        <td><%= family_goal.id %></td>
+        <td><%= family_goal.name %></td>
+        <td><%= family_goal.code %></td>
+        <td><%= family_goal.cargo %></td>
+        <td><%= family_goal.area %></td>
+        <td><%= family_goal.mundo %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+<!-- Esto es para la paginacion a traves de una gem -->
+<%= will_paginate @family_goals %>
+<br>
+
+<%= link_to 'Listar User', users_path %>
+
+<h2>Importar Excel</h2>
+
+<%= form_tag import_family_goals_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Import" %>
+<% end %> 
